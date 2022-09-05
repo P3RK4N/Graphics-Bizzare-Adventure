@@ -332,3 +332,20 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+
+# Custom
+**/.vs/
+**/bin-int/
+**/bin/
+**/doc/
+**/docs/
+Intermediates/
+
+*.log
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user
+**.csproj
+
+assets/cache
