@@ -2,6 +2,8 @@
 #include <Engine.h>
 #include <vector>
 
+#include <dinput.h>
+
 namespace Engine
 {
 	class RenderingGame : public Application
@@ -20,6 +22,15 @@ namespace Engine
 		virtual void update(const ApplicationTime& applicationTime) override;
 		virtual void draw(const ApplicationTime& applicationTime) override;
 		virtual void shutdown() override;
+
+	protected:
+		LPDIRECTINPUT8 m_DirectInput = nullptr;
+
+	protected:
+		TextPrinter* m_TextPrinter = nullptr;
+		FPSComponent* m_FPSComponent = nullptr;
+		Keyboard* m_Keyboard = nullptr;
+		Mouse* m_Mouse = nullptr;
 
 	private:
 		static const DirectX::XMVECTORF32 s_BackgroundColor;

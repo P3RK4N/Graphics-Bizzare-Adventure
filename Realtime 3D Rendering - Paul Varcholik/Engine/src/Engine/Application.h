@@ -5,6 +5,7 @@
 #include "ApplicationException.h"
 #include "ApplicationComponent.h"
 #include "DrawableApplicationComponent.h"
+#include "ServiceContainer.h"
 
 #include <windows.h>
 #include <string>
@@ -45,12 +46,13 @@ namespace Engine
 		//-------------
 
 		virtual void run();
-		virtual void exit() {}
+		virtual void exit();
 		virtual void initialize();
 		virtual void update(const ApplicationTime& applicationTime);
 		virtual void draw(const ApplicationTime& applicationTime);
 
 		const std::vector<ApplicationComponent*>& getComponents() const { return m_Components; }
+		ServiceContainer& getServiceContainer() { return m_ServiceContainer; }
 
 	protected:
 		//Window
@@ -71,6 +73,7 @@ namespace Engine
 		unsigned m_ScreenHeight = s_DefaultHeight;
 		//---------------
 
+
 		//D3D11_1
 		virtual void initializeDirectX();
 		
@@ -84,7 +87,7 @@ namespace Engine
 
 		UINT m_FrameRate = s_DefaultFrameRate;
 		bool m_IsFullScreen = false;
-		bool m_VSyncEnabled = false;
+		bool m_VSyncEnabled = true;
 		bool m_IsDepthStencilBufferEnabled = false;
 		bool m_IsMultiSamplingEnabled = false;
 		UINT m_MultiSamplingCount = s_DefaultMultiSamplingCount;
@@ -102,6 +105,7 @@ namespace Engine
 		ApplicationClock m_ApplicationClock{};
 		ApplicationTime m_ApplicationTime{};
 		std::vector<ApplicationComponent*> m_Components;
+		ServiceContainer m_ServiceContainer{};
 
 	private:
 		Application(const Application& rhs) = default;

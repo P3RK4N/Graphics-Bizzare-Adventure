@@ -12,9 +12,9 @@ namespace Engine
 	public:
 		DrawableApplicationComponent() 
 			: ApplicationComponent() {}
-		DrawableApplicationComponent(Application& app)
+		DrawableApplicationComponent(Application* app)
 			: ApplicationComponent(app) {}
-		DrawableApplicationComponent(Application& app, Camera& camera) 
+		DrawableApplicationComponent(Application* app, Camera& camera) 
 			: ApplicationComponent(app), m_Camera(&camera) {}
 
 		virtual ~DrawableApplicationComponent() {}

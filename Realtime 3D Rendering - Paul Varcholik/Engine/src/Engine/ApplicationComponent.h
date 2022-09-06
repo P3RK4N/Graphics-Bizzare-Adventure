@@ -13,8 +13,8 @@ namespace Engine
 	public:
 		ApplicationComponent()
 			: m_Application(nullptr), m_Enabled(true) {}
-		ApplicationComponent(Application& app)
-			: m_Application(&app), m_Enabled(true) {}
+		ApplicationComponent(Application* app)
+			: m_Application(app), m_Enabled(true) {}
 
 		virtual ~ApplicationComponent() {}
 

@@ -13,6 +13,9 @@
 #define BIT(x) (1 << x)
 #define BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1) 
 
+#include "Engine/ApplicationException.h"
+#include "Engine/RTTI.h"
+
 namespace Engine
 {
 	template<typename T>
@@ -26,5 +29,6 @@ namespace Engine
 
 	template<typename T, typename ... Args>
 	constexpr Ref<T> createRef(Args&& ... args) { return std::make_shared<T>(std::forward<Args>(args)...); }
+
 }
 

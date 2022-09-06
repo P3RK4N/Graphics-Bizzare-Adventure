@@ -1,26 +1,11 @@
 #include "pch.h"
 #include "FPSComponent.h"
-#include "Application.h"
 
-#include <sstream>
-#include <iomanip>
-#include <utility>
+#include "ApplicationTime.h"
 
 namespace Engine
 {
 	RTTI_DEFINITIONS(FPSComponent)
-
-	FPSComponent::~FPSComponent()
-	{
-		DeleteObject(m_SpriteFont);
-		DeleteObject(m_SpriteBatch);
-	}
-
-	void FPSComponent::initialize()
-	{
-		m_SpriteBatch = new DirectX::SpriteBatch(m_Application->getDirect3DDeviceContext());
-		m_SpriteFont = new DirectX::SpriteFont(m_Application->getDirect3DDevice(), L"resources/comicSansMS16.spritefont");
-	}
 
 	void FPSComponent::update(const ApplicationTime& applicationTime)
 	{
@@ -43,5 +28,4 @@ namespace Engine
 
 		m_SpriteBatch->End();
 	}
-
 }

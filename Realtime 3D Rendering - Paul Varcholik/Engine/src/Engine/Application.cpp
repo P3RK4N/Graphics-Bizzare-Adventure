@@ -271,4 +271,9 @@ namespace Engine
 			drawableComponent->draw(applicationTime);
 		}
 	}
+
+	void Application::exit()
+	{
+		PostQuitMessage(0);
+	}
 }

@@ -17,9 +17,10 @@
 #include <d3d11_1.h>
 #include <DirectXMath.h>
 #include <DirectXPackedVector.h>
+#include <dinput.h>
 
 #include "Engine/Core.h"
-#include "Engine/RTTI.h"
+
 
 
 #define DeleteObject(object)	if((object) != NULL) { delete object; object = NULL; }

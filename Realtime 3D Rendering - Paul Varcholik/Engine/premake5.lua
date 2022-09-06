@@ -2,7 +2,7 @@ project "EngineDX11"
     kind "StaticLib"
     language "C++"
     cppdialect "C++20"
-    staticruntime "on"
+    staticruntime "off"
 
     targetdir("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
     objdir("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
@@ -27,7 +27,9 @@ project "EngineDX11"
     {
         libraries.FX11,
         libraries.DirectXTK,
-        "D3D11.lib"
+        "D3D11.lib",
+        "dinput8.lib",
+        "dxguid.lib"
     }
 
     filter "system:windows"
