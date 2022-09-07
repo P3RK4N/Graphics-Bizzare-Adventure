@@ -1,13 +1,13 @@
 #include "RenderingGame.h"
 
+#include <format>
+
 #include <dinput.h>
 
 namespace Engine
 {
-
-
 	HRESULT hr;
-	const DirectX::XMVECTORF32 RenderingGame::s_BackgroundColor = { 0.8f, 0.2f, 0.9f, 1.0f };
+	const DirectX::XMVECTORF32 RenderingGame::s_BackgroundColor = { 0.09f, 0.64f, 0.9f, 1.0f };
 
 	void RenderingGame::initialize()
 	{
@@ -18,14 +18,19 @@ namespace Engine
 		m_TextPrinter = new TextPrinter(this, { 0.0f, 60.0f });
 		m_Keyboard = new Keyboard(this, m_DirectInput);
 		m_Mouse = new Mouse(this, m_DirectInput);
+		m_FirstPersonCamera = new FirstPersonCamera(this);
+		m_TriangleDemo = new TriangleDemo(this, m_FirstPersonCamera);
 
 		m_Components.push_back(m_FPSComponent);
 		m_Components.push_back(m_TextPrinter);
 		m_Components.push_back(m_Keyboard);
 		m_Components.push_back(m_Mouse);
+		m_Components.push_back(m_FirstPersonCamera);
+		m_Components.push_back(m_TriangleDemo);
 
 		m_ServiceContainer.addService(Keyboard::typeIdClass(), m_Keyboard);
 		m_ServiceContainer.addService(Mouse::typeIdClass(), m_Mouse);
+		m_ServiceContainer.addService(Camera::typeIdClass(), m_FirstPersonCamera);
 
 		Application::initialize();
 	}
@@ -36,13 +41,17 @@ namespace Engine
 			exit();
 
 		std::stringstream text;
+		XMFLOAT3 pos = m_FirstPersonCamera->getPosition();
+
+		if(m_Keyboard->isKeyDown(DIK_W)) text << "W";
+		text << "\nMouse X: " << m_Mouse->getX() << "  Y: " << m_Mouse->getY() << '\n';
 		
-		RECT rect{};
-		GetWindowRect(m_WindowHandle, &rect);
-		text << "Window: " << rect.left << " " << rect.right << " " << rect.top << " " << rect.bottom << "\n";
-
-
-		text << "Mouse X: " << m_Mouse->getX() << "  Y: " << m_Mouse->getY() << '\n';
+		text << "Camera pos: " << std::format("{} {} {} ", pos.x, pos.y, pos.z) << "\nMat: \n";
+		for(auto& vec : m_FirstPersonCamera->getViewMatrix().r)
+		{
+			for(auto& num : vec.m128_f32) text << std::format("{:8.3f} ", num);
+			text << "\n";
+		}
 
 		text << '\0';
 		m_TextPrinter->setText(text.str());

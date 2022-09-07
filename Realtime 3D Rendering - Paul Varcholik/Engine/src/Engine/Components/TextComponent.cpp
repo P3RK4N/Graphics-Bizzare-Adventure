@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "TextComponent.h"
-#include "Application.h"
+#include "Engine/Core/Application.h"
 
 namespace Engine
 {

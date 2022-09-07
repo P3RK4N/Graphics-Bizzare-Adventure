@@ -14,8 +14,8 @@ namespace Engine
 			: ApplicationComponent() {}
 		DrawableApplicationComponent(Application* app)
 			: ApplicationComponent(app) {}
-		DrawableApplicationComponent(Application* app, Camera& camera) 
-			: ApplicationComponent(app), m_Camera(&camera) {}
+		DrawableApplicationComponent(Application* app, Camera* camera) 
+			: ApplicationComponent(app), m_Camera(camera) {}
 
 		virtual ~DrawableApplicationComponent() {}
 

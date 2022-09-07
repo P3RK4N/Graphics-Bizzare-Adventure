@@ -1,18 +1,23 @@
 #pragma once
 
-#include "Engine/Application.h"
-#include "Engine/ApplicationException.h"
-#include "Engine/Core.h"
+#include "Engine/Core/Application.h"
+#include "Engine/Core/ApplicationException.h"
+#include "Engine/Core/Core.h"
+				 	 
+#include "Engine/Core/RTTI.h"
 
-#include "Engine/RTTI.h"
+#include "Engine/Components/ApplicationComponent.h"
+#include "Engine/Components/DrawableApplicationComponent.h"
+#include "Engine/Components/TextComponent.h"
+#include "Engine/Components/TextPrinter.h"
+#include "Engine/Components/FPSComponent.h"
+#include "Engine/Components/Keyboard.h"
+#include "Engine/Components/Mouse.h"
+#include "Engine/Components/Camera.h"
+#include "Engine/Components/FirstPersonCamera.h"
+#include "Engine/Components/TriangleDemo.h"
 
-#include "Engine/ApplicationComponent.h"
-#include "Engine/DrawableApplicationComponent.h"
-#include "Engine/TextComponent.h"
-#include "Engine/TextPrinter.h"
-#include "Engine/FPSComponent.h"
-#include "Engine/Keyboard.h"
-#include "Engine/Mouse.h"
+using namespace DirectX;
 
 #define DeleteObject(object)	if((object) != NULL) { delete object; object = NULL; }
 #define DeleteObjects(objects)	if((objects) != NULL) { delete[] object; objects = NULL; }

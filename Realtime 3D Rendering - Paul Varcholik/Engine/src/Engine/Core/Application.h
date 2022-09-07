@@ -3,8 +3,8 @@
 #include "ApplicationClock.h"
 #include "ApplicationTime.h"
 #include "ApplicationException.h"
-#include "ApplicationComponent.h"
-#include "DrawableApplicationComponent.h"
+#include "Engine/Components/ApplicationComponent.h"
+#include "Engine/Components/DrawableApplicationComponent.h"
 #include "ServiceContainer.h"
 
 #include <windows.h>
@@ -33,6 +33,7 @@ namespace Engine
 
 		unsigned getWidth() const { return m_ScreenWidth;  }
 		unsigned getHeight() const { return m_ScreenHeight;  }
+		float getAspectRatio() const { return (float)m_ScreenWidth / (float)m_ScreenHeight; }
 		//-------------
 
 		//D3D11_1

@@ -31,6 +31,8 @@ namespace Engine
 		FPSComponent* m_FPSComponent = nullptr;
 		Keyboard* m_Keyboard = nullptr;
 		Mouse* m_Mouse = nullptr;
+		FirstPersonCamera* m_FirstPersonCamera = nullptr;
+		TriangleDemo* m_TriangleDemo = nullptr;
 
 	private:
 		static const DirectX::XMVECTORF32 s_BackgroundColor;
