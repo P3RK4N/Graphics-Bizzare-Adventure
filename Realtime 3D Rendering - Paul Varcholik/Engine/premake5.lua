@@ -20,7 +20,8 @@ project "EngineDX11"
     {
         "src",
         includes.FX11,
-        includes.DirectXTK
+        includes.DirectXTK,
+        includes.assimp
     }
 
     links

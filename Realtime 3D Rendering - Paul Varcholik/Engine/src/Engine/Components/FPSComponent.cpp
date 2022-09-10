@@ -2,6 +2,7 @@
 #include "FPSComponent.h"
 
 #include "Engine/Core/ApplicationTime.h"
+#include "Engine/Core/RenderStateHelper.h"
 
 namespace Engine
 {
@@ -20,6 +21,9 @@ namespace Engine
 
 	void FPSComponent::draw(const ApplicationTime& applicationTime)
 	{
+		RenderStateHelper helper(m_Application);
+		helper.saveAll();
+		
 		m_SpriteBatch->Begin();
 
 		std::wostringstream fpsLabel;
@@ -27,5 +31,8 @@ namespace Engine
 		m_SpriteFont->DrawString(m_SpriteBatch, fpsLabel.str().c_str(), m_TextPosition);
 
 		m_SpriteBatch->End();
+
+		helper.restoreAll();
+
 	}
 }

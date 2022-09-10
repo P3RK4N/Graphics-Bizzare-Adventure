@@ -117,9 +117,8 @@ namespace Engine
 
 	void TriangleDemo::draw(const ApplicationTime& applicationTime)
 	{
-		ID3D11DeviceContext1* deviceContext = m_Application->getDirect3DDeviceContext();
-
 		//Set primitive topology for input assembler stage
+		ID3D11DeviceContext1* deviceContext = m_Application->getDirect3DDeviceContext();
 		deviceContext->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 		//Bind input layout to input assembler stage
 		deviceContext->IASetInputLayout(m_InputLayout);
@@ -130,7 +129,10 @@ namespace Engine
 		//Set shader constants
 		XMMATRIX worldMatrix = XMLoadFloat4x4(&m_WorldMatrix);
 		XMMATRIX wvp = worldMatrix * m_Camera->getViewProjectionMatrix();
-
+		//TMP
+		worldMatrix = XMMatrixRotationY(1.0f * (float)applicationTime.getElapsedApplicationTime()) * worldMatrix;
+		XMStoreFloat4x4(&m_WorldMatrix, worldMatrix);
+		//----
 		if(FAILED(hr = m_WVPVariable->SetMatrix((const float*)&wvp)))
 			throw new ApplicationException("SetRawValue() error", hr);
 		//Apply effect pass

@@ -33,6 +33,11 @@ namespace Engine
 		Mouse* m_Mouse = nullptr;
 		FirstPersonCamera* m_FirstPersonCamera = nullptr;
 		TriangleDemo* m_TriangleDemo = nullptr;
+		CubeDemo* m_CubeDemo = nullptr;
+		ModelDemo* m_ModelDemo = nullptr;
+		TexturedModelDemo* m_TexturedModelDemo = nullptr;
+		MaterialDemo* m_MaterialDemo = nullptr;
+		Skybox* m_Skybox = nullptr;
 
 	private:
 		static const DirectX::XMVECTORF32 s_BackgroundColor;

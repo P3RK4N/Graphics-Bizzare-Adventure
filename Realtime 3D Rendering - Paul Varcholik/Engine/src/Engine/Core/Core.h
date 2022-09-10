@@ -7,6 +7,9 @@
 	#define ASSERT(x)
 #endif
 
+#define DeleteObject(object)	if((object) != NULL) { delete object; object = NULL; }
+#define DeleteObjects(objects)	if((objects) != NULL) { delete[] objects; objects = NULL; }
+#define ReleaseObject(object)	if((object) != NULL) { object->Release(); object = NULL; }
 
 #define EXPAND_MACRO(x) x
 #define STRINGIFY_MACRO(x) #x

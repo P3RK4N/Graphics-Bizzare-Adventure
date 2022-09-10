@@ -16,9 +16,14 @@
 #include "Engine/Components/Camera.h"
 #include "Engine/Components/FirstPersonCamera.h"
 #include "Engine/Components/TriangleDemo.h"
+#include "Engine/Components/CubeDemo.h"
+#include "Engine/Components/ModelDemo.h"
+#include "Engine/Components/TexturedModelDemo.h"
+#include "Engine/Components/MaterialDemo.h"
+#include "Engine/Components/Skybox.h"
 
 using namespace DirectX;
 
 #define DeleteObject(object)	if((object) != NULL) { delete object; object = NULL; }
-#define DeleteObjects(objects)	if((objects) != NULL) { delete[] object; objects = NULL; }
+#define DeleteObjects(objects)	if((objects) != NULL) { delete[] objects; objects = NULL; }
 #define ReleaseObject(object)	if((object) != NULL) { object->Release(); object = NULL; }

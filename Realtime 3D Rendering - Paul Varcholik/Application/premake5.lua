@@ -19,12 +19,14 @@ project "ApplicationDX11"
         "%{wks.location}/Realtime 3D Rendering - Paul Varcholik/Engine/src",
         includes.spdlog,
         includes.DirectXTK,
-        includes.FX11
+        includes.FX11,
+        includes.assimp
     }
 
     links
     {
-        "EngineDX11"
+        "EngineDX11",
+        libraries.assimp
     }
 
     postbuildcommands

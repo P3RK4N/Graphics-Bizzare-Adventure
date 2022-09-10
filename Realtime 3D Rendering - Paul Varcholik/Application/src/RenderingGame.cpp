@@ -9,6 +9,7 @@ namespace Engine
 	HRESULT hr;
 	const DirectX::XMVECTORF32 RenderingGame::s_BackgroundColor = { 0.09f, 0.64f, 0.9f, 1.0f };
 
+	
 	void RenderingGame::initialize()
 	{
 		if(FAILED(hr = DirectInput8Create(m_Instance, DIRECTINPUT_VERSION, IID_IDirectInput8, (LPVOID*)&m_DirectInput, nullptr)))
@@ -20,13 +21,22 @@ namespace Engine
 		m_Mouse = new Mouse(this, m_DirectInput);
 		m_FirstPersonCamera = new FirstPersonCamera(this);
 		m_TriangleDemo = new TriangleDemo(this, m_FirstPersonCamera);
+		m_CubeDemo = new CubeDemo(this, m_FirstPersonCamera);
+		m_TexturedModelDemo = new TexturedModelDemo(this, m_FirstPersonCamera);
+		m_MaterialDemo = new MaterialDemo(this, m_FirstPersonCamera);
+		m_Skybox = new Skybox(this, m_FirstPersonCamera, L"resources\\skybox.dds", 500.0f);
 
-		m_Components.push_back(m_FPSComponent);
-		m_Components.push_back(m_TextPrinter);
 		m_Components.push_back(m_Keyboard);
 		m_Components.push_back(m_Mouse);
 		m_Components.push_back(m_FirstPersonCamera);
 		m_Components.push_back(m_TriangleDemo);
+		m_Components.push_back(m_CubeDemo);
+		m_Components.push_back(m_TexturedModelDemo);
+		m_Components.push_back(m_MaterialDemo);
+		m_Components.push_back(m_Skybox);
+
+		m_Components.push_back(m_FPSComponent);
+		m_Components.push_back(m_TextPrinter);
 
 		m_ServiceContainer.addService(Keyboard::typeIdClass(), m_Keyboard);
 		m_ServiceContainer.addService(Mouse::typeIdClass(), m_Mouse);

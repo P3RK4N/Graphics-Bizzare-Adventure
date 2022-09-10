@@ -15,7 +15,7 @@ namespace Engine
 		m_Window.hInstance = m_Instance;
 		m_Window.hIcon = LoadIcon(nullptr, IDI_APPLICATION);
 		m_Window.hIconSm = LoadIcon(nullptr, IDI_APPLICATION);
-		m_Window.hCursor = LoadIcon(nullptr, IDC_ARROW);
+		m_Window.hCursor = LoadCursor(nullptr, IDC_ARROW);
 		m_Window.hbrBackground = GetSysColorBrush(COLOR_BTNFACE);
 		m_Window.lpszClassName = m_WindowClass.c_str();
 
