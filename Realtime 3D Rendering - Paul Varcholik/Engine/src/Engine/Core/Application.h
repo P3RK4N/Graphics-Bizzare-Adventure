@@ -44,8 +44,20 @@ namespace Engine
 		bool isVSyncEnabled() const { return m_VSyncEnabled; }
 		const D3D11_TEXTURE2D_DESC& getBackBufferDescription() const { return m_BackBufferDescription; }
 		const D3D11_VIEWPORT& getViewport() const { return m_Viewport; }
+		ID3D11RenderTargetView* getRenderTargetView() { return m_RenderTargetView; }
+		ID3D11DepthStencilView* getDepthStencilView() { return m_DepthStencilView; }
+		void resetRenderTargets() const 
+		{ 
+			static ID3D11RenderTargetView* null = nullptr;
+			m_Direct3DDeviceContext->OMSetRenderTargets(1, &null, nullptr);
+
+			m_Direct3DDeviceContext->RSSetViewports(1, &m_Viewport);
+			m_Direct3DDeviceContext->OMSetRenderTargets(1, &m_RenderTargetView, m_DepthStencilView);
+		}
+
 		//-------------
 
+		virtual bool isShadowPass() const { return false; }
 		virtual void run();
 		virtual void exit();
 		virtual void initialize();
@@ -59,8 +71,8 @@ namespace Engine
 		//Window
 		virtual void initializeWindow();
 
-		static const unsigned s_DefaultWidth = 1280;
-		static const unsigned s_DefaultHeight = 720;
+		static const unsigned s_DefaultWidth = 2560;
+		static const unsigned s_DefaultHeight = 1440;
 
 		HINSTANCE m_Instance{};
 		std::wstring m_WindowClass{};

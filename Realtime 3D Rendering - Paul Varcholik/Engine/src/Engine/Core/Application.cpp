@@ -1,5 +1,4 @@
 #include "pch.h"
-
 #include "Application.h"
 
 namespace Engine
@@ -245,6 +244,7 @@ namespace Engine
 	}
 	void Application::initialize()
 	{
+
 		for(auto& component : m_Components)
 		{
 			component->initialize();

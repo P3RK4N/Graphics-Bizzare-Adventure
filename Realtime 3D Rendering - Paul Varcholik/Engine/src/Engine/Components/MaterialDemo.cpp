@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "MaterialDemo.h"
 
-#include "Engine/Core/Effect.h"
-#include "Engine/Core/BasicMaterial.h"
+#include "Engine/Shader/Effect.h"
+#include "Engine/Materials/BasicMaterial.h"
 #include "Engine/Core/Model.h"
 #include "Engine/Core/Application.h"
 #include "Engine/Core/Mesh.h"

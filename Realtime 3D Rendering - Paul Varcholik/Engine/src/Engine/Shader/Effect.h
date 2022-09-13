@@ -1,7 +1,7 @@
 #pragma once
 #include "Technique.h"
 
-#include "Engine/Core/Variable.h"
+#include "Variable.h"
 
 #include <string>
 #include <vector>

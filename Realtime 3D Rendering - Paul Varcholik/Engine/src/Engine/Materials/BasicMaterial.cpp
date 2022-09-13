@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "BasicMaterial.h"
 
-#include "Mesh.h"
+#include "Engine/Core/Mesh.h"
 
 namespace Engine
 {

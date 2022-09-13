@@ -8,6 +8,8 @@
 
 #include <DDSTextureLoader.h>
 
+#define ROTATION_SPEED 0.1f
+
 namespace Engine
 {
 	static HRESULT hr;
@@ -58,7 +60,7 @@ namespace Engine
 		(
 			&m_WorldMatrix,
 			XMLoadFloat4x4(&m_ScaleMatrix) *
-			XMMatrixRotationY(1.0f * (float)applicationTime.getElapsedApplicationTime()) *
+			XMMatrixRotationY(ROTATION_SPEED * (float)applicationTime.getTotalApplicationTime()) *
 			XMMatrixTranslation(position.x, position.y,position.z)
 		);
 	}

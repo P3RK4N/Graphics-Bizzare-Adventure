@@ -6,17 +6,18 @@
 
 namespace Engine
 {
-	class RenderingGame : public Application
+
+	class PostProcessing : public Application
 	{
 	public:
-		RenderingGame(HINSTANCE instance, const std::wstring& windowClass, const std::wstring& windowTitle, int showCommand)
+		PostProcessing(HINSTANCE instance, const std::wstring& windowClass, const std::wstring& windowTitle, int showCommand)
 			: Application(instance, windowClass, windowTitle, showCommand)
 		{
 			m_IsDepthStencilBufferEnabled = true;
 			m_IsMultiSamplingEnabled = true;
 		}
 
-		virtual ~RenderingGame() {}
+		virtual ~PostProcessing() {}
 
 		virtual void initialize() override;
 		virtual void update(const ApplicationTime& applicationTime) override;
@@ -26,22 +27,28 @@ namespace Engine
 	protected:
 		LPDIRECTINPUT8 m_DirectInput = nullptr;
 
-	protected:
 		TextPrinter* m_TextPrinter = nullptr;
 		FPSComponent* m_FPSComponent = nullptr;
 		Keyboard* m_Keyboard = nullptr;
 		Mouse* m_Mouse = nullptr;
 		FirstPersonCamera* m_FirstPersonCamera = nullptr;
-		TriangleDemo* m_TriangleDemo = nullptr;
-		CubeDemo* m_CubeDemo = nullptr;
-		ModelDemo* m_ModelDemo = nullptr;
-		TexturedModelDemo* m_TexturedModelDemo = nullptr;
-		MaterialDemo* m_MaterialDemo = nullptr;
 		Skybox* m_Skybox = nullptr;
 		DiffuseLightingDemo* m_DiffuseLightingDemo = nullptr;
 		PointLightDemo* m_PointLightDemo = nullptr;
 
+		FullScreenRenderTarget* m_DepthMap = nullptr;			
+		FullScreenQuad* m_FullScreenQuad = nullptr;
+		Effect* m_PostProcessingEffect = nullptr;
+		PostProcessMaterial* m_PostProcessMaterial = nullptr;
+
+		ID3D11Resource* m_DistortionTexture = nullptr;
+		ID3D11ShaderResourceView* m_DistortionView = nullptr;
+
+		void updatePostProcessMaterial();
+
 	private:
+
 		static const DirectX::XMVECTORF32 s_BackgroundColor;
+
 	};
 }

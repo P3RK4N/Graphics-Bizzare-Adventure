@@ -1,6 +1,11 @@
 #include "RenderingGame.h"
+#include "PostProcessing.h"
+#include "ShadowMapping.h"
+
 
 #include <memory>
+
+#define _DEBUG
 
 #ifdef DEBUG || _DEBUG
 	#define _CRTDBG_MAP_ALLOC
@@ -16,7 +21,7 @@ INT WINAPI WinMain(HINSTANCE instance, HINSTANCE previousInstance, LPSTR command
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 #endif
 
-	Scope<RenderingGame> app = createScope<RenderingGame>(instance, L"RenderingGame", L"Real-Time 3D Rendering", showCommand);
+	Scope<ShadowMapping> app = createScope<ShadowMapping>(instance, L"RenderingGame", L"Real-Time 3D Rendering", showCommand);
 
 	try
 	{

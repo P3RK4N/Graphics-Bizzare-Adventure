@@ -26,6 +26,20 @@ namespace Engine
 			m_NearPlane(nearPlane), 
 			m_FarPlane(farPlane) 
 		{ updateProjectionMatrix(); }
+
+		Camera(Application* app, const DirectX::XMFLOAT3& position, const DirectX::XMFLOAT3& forward, const DirectX::XMFLOAT3& up)
+			: ApplicationComponent(app), 
+			m_FOV(DirectX::XM_PIDIV2), 
+			m_AspectRatio(1.0f), 
+			m_NearPlane(s_DefaultNearPlane), 
+			m_FarPlane(s_DefaultFarPlane),
+			m_Position(position),
+			m_Forward(forward),
+			m_Up(up)
+		{
+			updateProjectionMatrix();
+			updateViewMatrix();
+		}
 		
 		virtual ~Camera() {}
 

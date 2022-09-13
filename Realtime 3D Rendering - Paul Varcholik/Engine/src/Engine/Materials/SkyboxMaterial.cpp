@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "SkyboxMaterial.h"
 
-#include "Mesh.h"
+#include "Engine/Core/Mesh.h"
 
 namespace Engine
 {

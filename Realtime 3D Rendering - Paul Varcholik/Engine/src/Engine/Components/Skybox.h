@@ -1,7 +1,7 @@
 #pragma once
 #include "DrawableApplicationComponent.h"
 
-#include "Engine/Core/SkyboxMaterial.h"
+#include "Engine/Materials/SkyboxMaterial.h"
 
 namespace Engine
 {

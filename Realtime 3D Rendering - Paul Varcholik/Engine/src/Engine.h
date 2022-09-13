@@ -3,6 +3,9 @@
 #include "Engine/Core/Application.h"
 #include "Engine/Core/ApplicationException.h"
 #include "Engine/Core/Core.h"
+#include "Engine/Core/FullScreenRenderTarget.h"
+#include "Engine/Core/RenderTarget.h"
+#include "Engine/Core/DepthMap.h"
 				 	 
 #include "Engine/Core/RTTI.h"
 
@@ -21,6 +24,12 @@
 #include "Engine/Components/TexturedModelDemo.h"
 #include "Engine/Components/MaterialDemo.h"
 #include "Engine/Components/Skybox.h"
+#include "Engine/Components/DiffuseLightingDemo.h"
+#include "Engine/Components/PointLightDemo.h"
+#include "Engine/Components/FullScreenQuad.h"
+#include "Engine/Components/ProjectionDemo.h"
+
+#include "Engine/Materials/PostProcessMaterial.h"
 
 using namespace DirectX;
 

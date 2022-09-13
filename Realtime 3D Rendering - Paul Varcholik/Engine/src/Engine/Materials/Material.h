@@ -1,8 +1,8 @@
 #pragma once
 #include "Engine/Core/RTTI.h"
 
-#include "Engine/Core/Effect.h"
-#include "Engine/Core/Variable.h"
+#include "Engine/Shader/Effect.h"
+#include "Engine/Shader/Variable.h"
 
 namespace Engine
 {
