@@ -56,8 +56,8 @@ float4 inverse_pixel_shader(VS_OUTPUT IN) : SV_Target
 
 float4 distortion_pixel_shader(VS_OUTPUT IN) : SV_Target
 {
-	float2 distortion = DistortionTexture.Sample(TrilinearSampler, IN.TextureCoordinate * 5.0f).xy - 0.5f;
-	float2 offset = IN.TextureCoordinate + 0.01f * distortion;
+	float2 distortion = DistortionTexture.Sample(TrilinearSampler, IN.TextureCoordinate * 0.5f).xy - 0.5f;
+	float2 offset = IN.TextureCoordinate + 0.02f * distortion * 15.5f;
 
 	if(offset.x < 0.0f || offset.x > 1.0f || offset.y < 0.0f || offset.y > 1.0f)
 		return float4(0.0f, 0.0f, 0.0f, 1.0f);
