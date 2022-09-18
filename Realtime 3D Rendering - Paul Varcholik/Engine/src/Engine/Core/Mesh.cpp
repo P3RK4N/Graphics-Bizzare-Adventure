@@ -73,6 +73,42 @@ namespace Engine
 					m_Indices.push_back(face->mIndices[j]);
 			}
 		}
+
+		if(mesh.HasBones())
+		{
+			m_BoneVertexWeights.resize(mesh.mNumVertices);
+
+			for (UINT i = 0; i < mesh.mNumBones; i++)
+			{
+				aiBone* meshBone = mesh.mBones[i];
+
+				UINT boneIndex = 0;
+				std::string boneName = meshBone->mName.C_Str();
+				auto boneMappingIterator = m_Model.m_BoneIndexMapping.find(boneName);
+				if(boneMappingIterator != m_Model.m_BoneIndexMapping.end())
+				{
+					boneIndex = boneMappingIterator->second;
+				}
+				else
+				{
+					boneIndex = m_Model.m_Bones.size();
+					XMFLOAT4X4 mat = XMFLOAT4X4(reinterpret_cast<const float*>(meshBone->mOffsetMatrix[0]));
+					XMMATRIX offsetMatrix = XMLoadFloat4x4(&mat);
+					XMFLOAT4X4 offset;
+					XMStoreFloat4x4(&offset, XMMatrixTranspose(offsetMatrix));
+
+					Bone* modelBone = new Bone(boneName, boneIndex, offset);
+					m_Model.m_Bones.push_back(modelBone);
+					m_Model.m_BoneIndexMapping[boneName] = boneIndex;
+				}
+
+				for(UINT j = 0; j < meshBone->mNumWeights; j++)
+				{
+					aiVertexWeight vertexWeight = meshBone->mWeights[j];
+					m_BoneVertexWeights[vertexWeight.mVertexId].addWeight(vertexWeight.mWeight, boneIndex);
+				}
+			}
+		}
 	}
 
 	Mesh::~Mesh()

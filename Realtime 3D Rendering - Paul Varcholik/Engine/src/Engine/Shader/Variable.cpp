@@ -57,9 +57,47 @@ namespace Engine
         ID3DX11EffectScalarVariable* variable = m_Variable->AsScalar();
         if(!variable->IsValid()) throw new ApplicationException();
         variable->SetFloat(value);
-
+      
         return *this;
     }
 
+    Variable& Variable::operator<<(const std::vector<float>& values)
+	{
+		ID3DX11EffectScalarVariable* variable = m_Variable->AsScalar();
+		if (variable->IsValid() == false)
+		{
+			throw ApplicationException("Invalid effect variable cast.");
+		}
+
+		variable->SetFloatArray(&values[0], 0, values.size());
+	
+		return *this;
+	}
+
+	Variable& Variable::operator<<(const std::vector<XMFLOAT2>& values)
+	{
+		ID3DX11EffectVectorVariable* variable = m_Variable->AsVector();
+		if (variable->IsValid() == false)
+		{
+			throw ApplicationException("Invalid effect variable cast.");
+		}
+
+		variable->SetFloatVectorArray(reinterpret_cast<const float*>(&values[0]), 0, values.size());
+	
+		return *this;
+	}
+
+	Variable& Variable::operator<<(const std::vector<XMFLOAT4X4>& values)
+	{
+		ID3DX11EffectMatrixVariable* variable = m_Variable->AsMatrix();
+		if (variable->IsValid() == false)
+		{
+			throw ApplicationException("Invalid effect variable cast.");
+		}
+
+		variable->SetMatrixArray(reinterpret_cast<const float*>(&values[0]), 0, values.size());
+
+		return *this;
+	}
 
 }

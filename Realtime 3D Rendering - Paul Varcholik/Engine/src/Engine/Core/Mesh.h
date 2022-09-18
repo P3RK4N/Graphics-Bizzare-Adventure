@@ -1,5 +1,7 @@
 #pragma once
 #include "Engine/Core/Model.h"
+#include "Engine/Core/BoneVertexWeight.h"
+#include "Engine/Core/Bone.h"
 
 #include <d3d11.h>
 #include <DirectXMath.h>
@@ -34,6 +36,8 @@ namespace Engine
 		const std::vector<XMFLOAT3>& getBiNormals() const { return m_BiNormals; }
 		const std::vector<std::vector<XMFLOAT3>*>& getTextureCoordinates() const { return m_TextureCoordinates; }
 		const std::vector<std::vector<XMFLOAT4>*>& getVertexColors() const { return m_VertexColors; }
+		
+		const std::vector<BoneVertexWeights>& getBoneVertexWeights() const { return m_BoneVertexWeights; }
 
 		UINT getFaceCount() const { return m_FaceCount; }
 
@@ -46,6 +50,7 @@ namespace Engine
 
 		Model& m_Model;
 		ModelMaterial* m_Material = nullptr;
+		std::vector<BoneVertexWeights> m_BoneVertexWeights{};
 		std::string m_Name{};
 		std::vector<XMFLOAT3> m_Vertices{};
 		std::vector<UINT> m_Indices{};									

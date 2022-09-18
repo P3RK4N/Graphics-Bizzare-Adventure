@@ -67,7 +67,7 @@ namespace Engine
 		XMStoreFloat4x4
 		(
 			&m_WorldMatrix,
-			XMMatrixRotationY(-0.5f * (float)applicationTime.getElapsedApplicationTime()) *
+			XMMatrixRotationX(-2.5f * (float)applicationTime.getElapsedApplicationTime()) *
 			XMLoadFloat4x4(&m_WorldMatrix)
 		);
 

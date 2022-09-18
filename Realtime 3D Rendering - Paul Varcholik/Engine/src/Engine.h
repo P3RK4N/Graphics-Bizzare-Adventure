@@ -28,6 +28,8 @@
 #include "Engine/Components/PointLightDemo.h"
 #include "Engine/Components/FullScreenQuad.h"
 #include "Engine/Components/ProjectionDemo.h"
+#include "Engine/Components/AnimationDemo.h"
+#include "Engine/Components/AnimationPlayer.h"
 
 #include "Engine/Materials/PostProcessMaterial.h"
 

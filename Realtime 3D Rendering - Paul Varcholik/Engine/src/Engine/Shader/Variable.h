@@ -28,6 +28,9 @@ namespace Engine
 		Variable& operator<<(ID3D11ShaderResourceView* value);
 		Variable& operator<<(FXMVECTOR value);
 		Variable& operator<<(float value);
+		Variable& operator<<(const std::vector<float>& values);
+		Variable& operator<<(const std::vector<XMFLOAT2>& values);
+		Variable& operator<<(const std::vector<XMFLOAT4X4>& values);
 
 	private:
 		Variable(const Variable&) = default;
