@@ -13,6 +13,7 @@ SamplerState TrilinearSampler
 RasterizerState DisableCulling
 {
 	CullMode = NONE;
+	FillMode = SOLID;
 };
 
 struct VS_INPUT
@@ -47,6 +48,8 @@ technique11 main11{
 	{
 		SetVertexShader(CompileShader(vs_5_0, vertex_shader()));
  		SetGeometryShader(NULL);
+		SetHullShader(NULL);
+		SetDomainShader(NULL);
  		SetPixelShader(CompileShader(ps_5_0, pixel_shader()));
  		SetRasterizerState(DisableCulling);
 	}

@@ -27,8 +27,8 @@ namespace Engine
 		MaterialDemo(const MaterialDemo&) = default;
 		MaterialDemo& operator=(const MaterialDemo&) = default;
 
-		Effect* m_BasicEffect = nullptr;					
-		BasicMaterial* m_BasicMaterial = nullptr;
+		Effect* m_GeometryEffect = nullptr;					
+		BasicMaterial* m_BillboardingMaterial = nullptr;
 		ID3D11Buffer* m_VertexBuffer = nullptr;
 		ID3D11Buffer* m_IndexBuffer = nullptr;
 		UINT m_IndexCount = 0;

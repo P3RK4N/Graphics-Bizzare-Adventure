@@ -30,6 +30,7 @@
 #include "Engine/Components/ProjectionDemo.h"
 #include "Engine/Components/AnimationDemo.h"
 #include "Engine/Components/AnimationPlayer.h"
+#include "Engine/Components/GeometryShaderDemo.h"
 
 #include "Engine/Materials/PostProcessMaterial.h"
 

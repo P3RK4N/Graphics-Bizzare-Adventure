@@ -2,6 +2,7 @@
 #include "PostProcessing.h"
 #include "ShadowMapping.h"
 #include "AnimationGame.h"
+#include "Geometry_Tesselation_Game.h"
 
 #include <memory>
 
@@ -21,7 +22,7 @@ INT WINAPI WinMain(HINSTANCE instance, HINSTANCE previousInstance, LPSTR command
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 #endif
 
-	Scope<PostProcessing> app = createScope<PostProcessing>(instance, L"RenderingGame", L"Real-Time 3D Rendering", showCommand);
+	Scope<Geometry_Tesselation_Game> app = createScope<Geometry_Tesselation_Game>(instance, L"RenderingGame", L"Real-Time 3D Rendering", showCommand);
 
 	try
 	{
