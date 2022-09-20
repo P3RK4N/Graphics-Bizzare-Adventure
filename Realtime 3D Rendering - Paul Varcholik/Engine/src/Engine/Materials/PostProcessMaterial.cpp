@@ -30,6 +30,7 @@ namespace Engine
 		createInputLayout("filter", "inverse", inputDesc, sizeof(inputDesc) / sizeof(inputDesc[0]));
 		createInputLayout("filter", "blur", inputDesc, sizeof(inputDesc) / sizeof(inputDesc[0]));
 		createInputLayout("filter", "distortion", inputDesc, sizeof(inputDesc) / sizeof(inputDesc[0]));
+		createInputLayout("filter", "nothing", inputDesc, sizeof(inputDesc) / sizeof(inputDesc[0]));
 	}
 
 }

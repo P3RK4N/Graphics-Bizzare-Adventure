@@ -54,6 +54,11 @@ float4 inverse_pixel_shader(VS_OUTPUT IN) : SV_Target
 	return float4(1 - color.rgb, color.a);
 }
 
+float4 nothing_pixel_shader(VS_OUTPUT IN) : SV_Target
+{
+	return ColorTexture.Sample(TrilinearSampler, IN.TextureCoordinate);
+}
+
 float4 distortion_pixel_shader(VS_OUTPUT IN) : SV_Target
 {
 	float2 distortion = DistortionTexture.Sample(TrilinearSampler, IN.TextureCoordinate * 0.5f).xy - 0.5f;
@@ -99,6 +104,13 @@ technique11 filter
 	{
 		SetVertexShader(CompileShader(vs_5_0, vertex_shader()));
 		SetPixelShader(CompileShader(ps_5_0, grayscale_pixel_shader()));
+		SetGeometryShader(NULL);
+	}
+
+	pass nothing
+	{
+		SetVertexShader(CompileShader(vs_5_0, vertex_shader()));
+		SetPixelShader(CompileShader(ps_5_0, nothing_pixel_shader()));
 		SetGeometryShader(NULL);
 	}
 

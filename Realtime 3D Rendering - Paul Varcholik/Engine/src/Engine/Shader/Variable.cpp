@@ -43,6 +43,19 @@ namespace Engine
         return *this;
     }
 
+    Variable& Variable::operator<<(ID3D11UnorderedAccessView* value)
+	{
+		ID3DX11EffectUnorderedAccessViewVariable* variable = m_Variable->AsUnorderedAccessView();
+		if (variable->IsValid() == false)
+		{
+			throw ApplicationException("Invalid effect variable cast.");
+		}
+
+		variable->SetUnorderedAccessView(value);
+
+		return *this;
+	}
+
     Variable& Variable::operator<<(FXMVECTOR value)
     {
         ID3DX11EffectVectorVariable* variable = m_Variable->AsVector();

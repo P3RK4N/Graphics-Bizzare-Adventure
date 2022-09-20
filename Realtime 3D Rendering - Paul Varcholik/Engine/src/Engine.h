@@ -4,6 +4,7 @@
 #include "Engine/Core/ApplicationException.h"
 #include "Engine/Core/Core.h"
 #include "Engine/Core/FullScreenRenderTarget.h"
+#include "Engine/Core/ComputeTarget.h"
 #include "Engine/Core/RenderTarget.h"
 #include "Engine/Core/DepthMap.h"
 				 	 
@@ -33,6 +34,7 @@
 #include "Engine/Components/GeometryShaderDemo.h"
 
 #include "Engine/Materials/PostProcessMaterial.h"
+#include "Engine/Materials/ComputeMaterial.h"
 
 using namespace DirectX;
 

@@ -26,6 +26,7 @@ namespace Engine
 
 		Variable& operator<<(CXMMATRIX value);
 		Variable& operator<<(ID3D11ShaderResourceView* value);
+		Variable& operator<<(ID3D11UnorderedAccessView* value);
 		Variable& operator<<(FXMVECTOR value);
 		Variable& operator<<(float value);
 		Variable& operator<<(const std::vector<float>& values);
