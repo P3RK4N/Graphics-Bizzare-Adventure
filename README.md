@@ -26,3 +26,7 @@ ShadowMapping (DirectX11, HLSL) (GIF)
 Animation (DirectX11, HLSL) (GIF)
 
 ![GIF](Preview/Realtime-3D-Rendering-Paul-Varcholik/animation.gif "Animation")
+
+Tessellation (DirectX11, HLSL) (GIF)
+
+![GIF](Preview/Realtime-3D-Rendering-Paul-Varcholik/tessellation.gif "Tessellation")
