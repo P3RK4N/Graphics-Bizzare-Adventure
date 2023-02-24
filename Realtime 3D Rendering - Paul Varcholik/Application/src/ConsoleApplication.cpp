@@ -23,7 +23,7 @@ INT WINAPI WinMain(HINSTANCE instance, HINSTANCE previousInstance, LPSTR command
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 #endif
 
-	Scope<ComputeGame> app = createScope<ComputeGame>(instance, L"RenderingGame", L"Real-Time 3D Rendering", showCommand);
+	Scope<ShadowMapping> app = createScope<ShadowMapping>(instance, L"RenderingGame", L"Real-Time 3D Rendering", showCommand);
 
 	try
 	{
